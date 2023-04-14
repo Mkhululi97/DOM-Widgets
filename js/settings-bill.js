@@ -22,12 +22,10 @@ var callCostSettingValue,
 
 var totalCostSettings, addBtnEnable;
 
-// create a variable that will keep track of the total bill
-var totalBill = 0;
 // create a variable that will keep track of the sms total
-var smsTotal = 0;
+var settingsSmsTotal = 0;
 // create a variable that will keep track of the total
-var callsTotal = 0;
+var settingsCallsTotal = 0;
 
 // reset default text for call sms and total, totals
 callTotalSettings.innerHTML = "0.00";
@@ -77,14 +75,14 @@ function settingsBillTotal() {
     );
     // update the script totals
     if (checkedRadioBtnSettings.value === "call") {
-      callsTotal += callCostSettingValue;
+      settingsCallsTotal += callCostSettingValue;
     } else if (checkedRadioBtnSettings.value === "sms") {
-      smsTotal += smsCostSettingValue;
+      settingsSmsTotal += smsCostSettingValue;
     }
     // update the dom totals
-    callTotalSettings.innerHTML = callsTotal.toFixed(2);
-    smsTotalSettings.innerHTML = smsTotal.toFixed(2);
-    totalCostSettings = callsTotal + smsTotal;
+    callTotalSettings.innerHTML = settingsCallsTotal.toFixed(2);
+    smsTotalSettings.innerHTML = settingsSmsTotal.toFixed(2);
+    totalCostSettings = settingsCallsTotal + settingsSmsTotal;
     totalSettings.innerHTML = totalCostSettings.toFixed(2);
     // change the text color based on the criteria
     if (totalCostSettings >= criticalLevelValue) {

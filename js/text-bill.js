@@ -9,12 +9,10 @@ var smsTotalOne = document.querySelector(".smsTotalOne");
 // get a reference to the total text
 var totalCostElem = document.querySelector(".totalOne");
 
-//create a variable that will keep track of the total bill
-var totalBill = 0;
 // create a variable that will keep track of the sms total
-var smsTotal = 0;
+var textSmsTotal = 0;
 // create a variable that will keep track of the calls total
-var callsTotal = 0;
+var textCallsTotal = 0;
 // reset default text for call sms and total, totals
 callTotalOne.innerHTML = "0.00";
 smsTotalOne.innerHTML = "0.00";
@@ -24,14 +22,14 @@ function textBillTotal() {
   var billTypeEntered = billTypeText.value.trim().toLowerCase();
   // update the correct total
   if (billTypeEntered === "call") {
-    callsTotal += 2.75;
+    textCallsTotal += 2.75;
   } else if (billTypeEntered == "sms") {
-    smsTotal += 0.75;
+    textSmsTotal += 0.75;
   }
   // update the DOM totals
-  callTotalOne.innerHTML = callsTotal.toFixed(2);
-  smsTotalOne.innerHTML = smsTotal.toFixed(2);
-  var totalCost = callsTotal + smsTotal;
+  callTotalOne.innerHTML = textCallsTotal.toFixed(2);
+  smsTotalOne.innerHTML = textSmsTotal.toFixed(2);
+  var totalCost = textCallsTotal + textSmsTotal;
   totalCostElem.innerHTML = totalCost.toFixed(2);
   // change the text color based on the criteria
   if (totalCost >= 50) {
