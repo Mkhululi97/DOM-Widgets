@@ -30,6 +30,18 @@ function useInputValues() {
     callTotalSettings.innerHTML = billCalculator.totalCallCost();
     smsTotalSettings.innerHTML = billCalculator.totalSmsCost();
     totalSettings.innerHTML = billCalculator.totalCost();
+    if (
+      Number(billCalculator.totalCost()) >= billCalculator.getCriticalLevel()
+    ) {
+      totalSettings.classList.add(billCalculator.totalClassName());
+    } else {
+    }
+
+    if (
+      Number(billCalculator.totalCost() >= billCalculator.getWarningLevel())
+    ) {
+      totalSettings.classList.add(billCalculator.totalClassName());
+    }
   }
 }
 
