@@ -34,7 +34,6 @@ function useInputValues() {
       Number(billCalculator.totalCost()) >= billCalculator.getCriticalLevel()
     ) {
       totalSettings.classList.add(billCalculator.totalClassName());
-    } else {
     }
 
     if (
@@ -62,6 +61,18 @@ function setInputValues() {
     billCalculator.setSmsCost(Number(smsCostInput.value));
     billCalculator.setCriticalLevel(Number(criticalLevelInput.value));
     billCalculator.setWarningLevel(Number(warningLevelInput.value));
+    if (
+      Number(billCalculator.totalCost()) !== 0 &&
+      Number(billCalculator.totalCost()) < billCalculator.getCriticalLevel()
+    ) {
+      totalSettings.classList.remove("danger");
+    }
+    if (
+      Number(billCalculator.totalCost()) !== 0 &&
+      Number(billCalculator.totalCost()) < billCalculator.getWarningLevel()
+    ) {
+      totalSettings.classList.remove("warning");
+    }
   }
 }
 
