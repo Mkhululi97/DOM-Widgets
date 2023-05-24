@@ -2,9 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>DOM Intro Widgets</title>
     <link rel="stylesheet" href="css/skeleton.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -89,6 +90,7 @@
             </div>
           </div>
         </div>
+        <!-- TEXT INPUT BILL START -->
         <div class="six columns box">
           <h3>Text input bill</h3>
 
@@ -131,25 +133,27 @@
             </div>
             <div class="six columns">
               <h5>Totals</h5>
-              <table>
-                <tr>
+              <table class="table-template">
+                <!-- <tr class="call-row">
                   <td>Call total</td>
                   <td>R<span class="callTotalOne">27.50</span></td>
                 </tr>
-                <tr>
+                <tr class="sms-row">
                   <td>SMS total</td>
                   <td>R<span class="smsTotalOne">13.75</span></td>
                 </tr>
-                <tr>
+                <tr class="total-row">
                   <td>Total</td>
                   <td class="red">R<span class="totalOne">41.25</span></td>
-                </tr>
+                </tr> -->
               </table>
             </div>
           </div>
         </div>
+        <!-- TEXT INPUT BILL END -->
       </div>
       <div class="row">
+        <!-- RADIO BUTTON BILL START -->
         <div class="six columns box">
           <h3>Radio button bill</h3>
 
@@ -204,8 +208,8 @@
             </div>
             <div class="six columns">
               <h5>Totals</h5>
-              <table>
-                <tr>
+              <table class="table-template-radio">
+                <!-- <tr>
                   <td>Call total</td>
                   <td>R<span class="callTotalTwo">34.50</span></td>
                 </tr>
@@ -216,11 +220,12 @@
                 <tr>
                   <td>Total</td>
                   <td class="orange">R<span class="totalTwo">37.50</span></td>
-                </tr>
+                </tr> -->
               </table>
             </div>
           </div>
         </div>
+        <!-- RADIO BUTTON BILL END -->
         <div class="six columns box">
           <h3>Bill with settings</h3>
           <div class="">
@@ -331,12 +336,29 @@
       </div>
     </div>
     <script src="js/calculate-bill.js" charset="utf-8"></script>
-    <script src="js/text-bill.js" charset="utf-8"></script>
-    <script src="js/radio-bill.js" charset="utf-8"></script>
     <!-- <script src="js/settings-bill.js" charset="utf-8"></script> -->
     <!-- MAKING BILL WITH SETTINGS WORK USING THE FACTORY FUNCTION -->
-
     <script src="js/SettingsBill.js" charset="utf-8"></script>
     <script src="js/settingsBillDOM.js" charset="utf-8"></script>
+
+    <!-- MAKING TEXT INPUT BILL AND RADIO BUTTON BILL WORK USING THE HANDLEBARS -->
+    <!-- <script src="js/radio-bill.js" charset="utf-8"></script> -->
+    <!-- <script src="js/text-bill.js" charset="utf-8"></script> -->
+    <script id="template" type="text/x-handlebars-template">
+      <tr class="call-row">
+        <td>Call total</td>
+        <td>R<span class="callTotal">{{callTotal}}</span></td>
+      </tr>
+      <tr class="sms-row">
+        <td>SMS total</td>
+        <td>R<span class="smsTotal">{{smsTotal}}</span></td>
+      </tr>
+      <tr class="total-row">
+        <td>Total</td>
+        <td class="red">R<span class="totalBill">{{total}}</span></td>
+      </tr>
+    </script>
+    <script src="js/text-bill-handlebars.js" charset="utf-8"></script>
+    <script src="js/radio-bill-handlebars.js" charset="utf-8"></script>
   </body>
 </html>
